@@ -1,10 +1,10 @@
-def call(Map stageParams) {
+def call(Map stageParams, repodir) {
     sh """
-    if [ -d "Test" ] 
+    if [ -d ${repodir} ] 
     then
-        rm -r Test/ 
+        rm -r ${repodir}/ 
     fi
-    mkdir Test
+    mkdir ${repodir}
     """
     dir('Test'){
     checkout([
