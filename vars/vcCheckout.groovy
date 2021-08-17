@@ -1,4 +1,11 @@
 def call(Map stageParams) {
+    sh """
+    if [ -d "Test" ] 
+    then
+        rm -r Test/ 
+    fi
+    mkdir Test
+    """
     dir('Test'){
     checkout([
         $class: 'GitSCM',
