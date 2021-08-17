@@ -1,12 +1,12 @@
-def call(Map stageParams, String repodir=evaluate("repodir")){
+def call(Map stageParams){
     sh """
-    if [ -d ${repodir} ] 
+    if [ -d ${stageParam.repodir} ] 
     then
-        rm -r ${repodir}/ 
+        rm -r ${stageParam.repodir}/ 
     fi
-    mkdir ${repodir}
+    mkdir ${stageParam.repodir}
     """
-    dir("${repodir}"){
+    dir("${stageParam.repodir}"){
     checkout([
         $class: 'GitSCM',
         branches: [[name:  stageParams.branch ]],
