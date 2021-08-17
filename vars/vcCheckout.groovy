@@ -13,7 +13,7 @@ def call(Map stageParams){
         userRemoteConfigs: [[ url: stageParams.url ]]
     ]) 
      sh"""
-     cp .${stageParms.srcpath}/*.* ../${stageParms.destpath}
+     cp .${stageParams.srcpath}/*.* ../${stageParams.destpath}
      """    
     } 
     
