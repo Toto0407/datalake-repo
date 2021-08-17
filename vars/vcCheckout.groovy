@@ -1,6 +1,5 @@
 def call(Map stageParams) {
-    mkdir Test
-    cd ./Test
+    sh 'mkdir Test'
     checkout([
         $class: 'GitSCM',
         branches: [[name:  stageParams.branch ]],
