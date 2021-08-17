@@ -6,7 +6,7 @@ def call(Map stageParams, String repodir=evaluate("repodir")){
     fi
     mkdir ${repodir}
     """
-    dir(${repodir}){
+    dir("${repodir}"){
     checkout([
         $class: 'GitSCM',
         branches: [[name:  stageParams.branch ]],
