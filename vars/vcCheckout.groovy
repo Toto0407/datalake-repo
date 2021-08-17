@@ -1,12 +1,12 @@
 def call(Map stageParams){
     sh """
-    if [ -d ${stageParam.repodir} ] 
+    if [ -d ${stageParams.repodir} ] 
     then
-        rm -r ${stageParam.repodir}/ 
+        rm -r ${stageParams.repodir}/ 
     fi
-    mkdir ${stageParam.repodir}
+    mkdir ${stageParams.repodir}
     """
-    dir("${stageParam.repodir}"){
+    dir("${stageParams.repodir}"){
     checkout([
         $class: 'GitSCM',
         branches: [[name:  stageParams.branch ]],
