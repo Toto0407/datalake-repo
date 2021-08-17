@@ -14,6 +14,7 @@ def call(Map stageParams){
     ]) 
      sh"""
      cp ./${stageParams.srcpath}*.* ../${stageParams.destpath}
+     ls -la ../${stageParams.destpath}
      """    
     } 
     
