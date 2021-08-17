@@ -1,4 +1,4 @@
-def call(Map stageParams, String repodir = evaluate("repodir"){
+def call(Map stageParams, String repodir=evaluate("repodir"){
     sh """
     if [ -d ${repodir} ] 
     then
