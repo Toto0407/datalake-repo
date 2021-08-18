@@ -1,14 +1,14 @@
 def call(Map stageParams){
-    def repo_dir = new File("${stageParams.src_repo_name}")
-    sh'pwd'
-    if (repo_dir.exists()){
-        echo " folder exist"
-    }
-    repo_dir.mkdir()
-   
+    
+    dir("${stageParams.src_repo_name}"){
+    checkout([
+        $class: 'GitSCM',
+        branches: [[name:  stageParams.src_repo_branch ]],
+        userRemoteConfigs: [[ url: stageParams.src_repo_url ]]
+    ])
      sh"""
      ls -la
      ls -la ./${stageParams.dst_repo_dir}
      """    
- 
+   }
 }
