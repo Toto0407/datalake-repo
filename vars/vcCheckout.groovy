@@ -1,5 +1,5 @@
 def call(Map stageParams){
-    def r_dir = new File( stageParms.repodirname )
+    def r_dir = new File( stageParams.repodirname )
     
     if (r_dir.exists()){
         deleteDir(dir_name)
