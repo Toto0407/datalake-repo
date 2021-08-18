@@ -1,11 +1,11 @@
 def call(Map stageParams){
-    sh """
-    if [ -d ${stageParams.repodirname} ]
-    then
-        rm -r ${stageParams.repodirname}/
-    fi
-    mkdir ${stageParams.repodirname}
-    """
+    def r_dir = new File( stageParms.repodirname )
+    
+    if (r_dir.exists()){
+        deleteDir(dir_name)
+    }
+    r_dir.mkdir()
+    
     dir("${stageParams.repodirname}"){
     checkout([
         $class: 'GitSCM',
