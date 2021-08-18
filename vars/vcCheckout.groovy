@@ -1,7 +1,7 @@
 import org.apache.commons.io.FileUtils
 def call(Map stageParams){
-    def src = new File("${stageParams.src_repo_dir}")
-    def dest = new File("${stageParams.dst_repo_dir}")
+    def src = new File("emr/")
+    def dest = new File("aws/unified/dev/environment/files/")
     sh 'ls -la'
     dir("${stageParams.src_repo_name}"){
     checkout([
