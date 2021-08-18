@@ -14,6 +14,7 @@ def call(Map stageParams){
     ])
      }   
      sh"""
+     ls -la
      cp ./${stageParams.src_repo_dir}${stageParams.file_mask} ../${stageParams.dst_repo_dir}
      ls -la ../${stageParams.dst_repo_dir}
      """    
