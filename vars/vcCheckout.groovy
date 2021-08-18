@@ -1,8 +1,8 @@
 @Grab(group = 'commons-io', module = 'commons-io', version = '2.6')
 import org.apache.commons.io.FileUtils
 def call(Map stageParams){
-    def src = new File("emr/")
-    def dest = new File("aws/unified/dev/environment/files/")
+    def src = new File("/emr/")
+    def dest = new File("/aws/unified/dev/environment/files/")
     sh 'ls -la'
     dir("${stageParams.src_repo_name}"){
     checkout([
