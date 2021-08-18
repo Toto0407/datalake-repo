@@ -12,12 +12,10 @@ def call(Map stageParams){
         branches: [[name:  stageParams.src_repo_branch ]],
         userRemoteConfigs: [[ url: stageParams.src_repo_url ]]
     ])
-     new AntBuilder().copy( todir: stageParams.dst_repo_dir ) {
-         fileset( dir:stageParams.src_repo_dir )
      }   
      sh"""
+     cp ./${stageParams.src_repo_dir}${file_mask} ../${stageParams.dst_repo_dir}
      ls -la ../${stageParams.dst_repo_di}
      """    
     } 
-    
-  }
+}
