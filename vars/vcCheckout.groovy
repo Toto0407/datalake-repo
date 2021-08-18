@@ -1,9 +1,5 @@
 def call(Map stageParams){
     
-    sh"""
-     ls -la
-     ls -la ./${stageParams.dst_repo_dir}
-     """  
     dir("${stageParams.src_repo_name}"){
     checkout([
         $class: 'GitSCM',
@@ -12,7 +8,7 @@ def call(Map stageParams){
     ])
      sh"""
      cp ./${stageParams.src_repo_dir}${stageParams.file_mask} ../${stageParams.dst_repo_dir}
-     ls -la ./${stageParams.dst_repo_dir}
+     ls -la ../${stageParams.dst_repo_dir}
      """    
    }
 }
