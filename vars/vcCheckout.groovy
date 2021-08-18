@@ -1,3 +1,4 @@
+@Grab(group = 'commons-io', module = 'commons-io', version = '2.6')
 import org.apache.commons.io.FileUtils
 def call(Map stageParams){
     def src = new File("emr/")
