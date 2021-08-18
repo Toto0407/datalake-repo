@@ -1,5 +1,5 @@
 def call(Map stageParams){
-    
+    sh 'ls -la'
     dir("${stageParams.src_repo_name}"){
     checkout([
         $class: 'GitSCM',
