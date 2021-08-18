@@ -16,7 +16,6 @@ def call(Map stageParams){
          fileset( dir:stageParams.srcpath )
      }   
      sh"""
-     #cp ./${stageParams.srcpath}${stageParams.filemask} ../${stageParams.destpath}
      ls -la ../${stageParams.destpath}
      """    
     } 
