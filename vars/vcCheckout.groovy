@@ -11,11 +11,11 @@ def call(Map stageParams){
         $class: 'GitSCM',
         branches: [[name:  stageParams.src_repo_branch ]],
         userRemoteConfigs: [[ url: stageParams.src_repo_url ]]
-    ])
-     }   
+    ])  
      sh"""
      ls -la
      cp ./${stageParams.src_repo_dir}${stageParams.file_mask} ../${stageParams.dst_repo_dir}
      ls -la ../${stageParams.dst_repo_dir}
      """    
-} 
+    }
+}
