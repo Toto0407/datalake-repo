@@ -7,7 +7,7 @@ def call(Map stageParams){
    
      sh"""
      ls -la
-     ls -la ../${stageParams.dst_repo_dir}
+     ls -la ./${stageParams.dst_repo_dir}
      """    
  
 }
