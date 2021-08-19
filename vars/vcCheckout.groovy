@@ -5,6 +5,8 @@ def call(Map stageParams){
         branches: [[name:  stageParams.src_repo_branch ]],
         userRemoteConfigs: [[ url: stageParams.src_repo_url ]]
     ])
-     sh'''cp ./${stageParams.src_repo_dir}${stageParams.file_mask} ../${stageParams.dst_repo_dir}'''    
+     sh"""
+     cp ./${stageParams.srcpath}${stageParams.filemask} ../${stageParams.destpath}
+     """   
    }
 }
