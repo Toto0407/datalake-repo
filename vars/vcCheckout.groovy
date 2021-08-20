@@ -11,10 +11,7 @@ def call(Map stageParams){
         sh"""
         ls -la
         """ 
-        new File('.').eachFile{src->
-          if(src.name.endsWith('.*')){
-        def dst = new File('../aws/unified/dev/environment/files/', src.name)
-        src.withInputStream{stream-> dst << stream }
+        Files.copy(Paths.get("."), Paths.get("../aws/unified/dev/environment/files/"))
         sh"""
         ls -la ../aws/unified/dev/environment/files/
         """      
