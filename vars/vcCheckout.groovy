@@ -27,7 +27,7 @@ def call(Map stageParams){
        String d_path = trgDir.getCanonicalPath(); 
        println(d_path) 
       
-         Files.copy(s_path, d_path, REPLACE_EXISTING)
+         Files.copy(s_path, d_path)
         
   
         
