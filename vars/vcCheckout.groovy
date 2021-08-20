@@ -16,7 +16,7 @@ def call(Map stageParams){
              uri = new URI("/emr")
              }
         Path source=Paths.get(uri)
-         URI uri2 = null;
+         URI uri2 = null
          try {
              uri2 = new URI("/aws/unified/dev/environment/files/")  
              }
