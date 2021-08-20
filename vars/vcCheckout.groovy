@@ -1,8 +1,6 @@
 import java.nio.file.Files
 import java.nio.file.Paths
-import java.nio.file.Path
-import groovy.util.AntBuilder
-import org.springframework.util.FileSystemUtils
+import java.nio.file.Pats
 import org.apache.commons.io.FileUtils
 
 
@@ -18,7 +16,7 @@ def call(Map stageParams){
         """ 
         
        File trgDir = new File("/emr/")
-       File srcDir = new File("/aws/unified/dev/environment/files/")
+       File srcDir = new File("../aws/unified/dev/environment/files/")
 
        FileUtils.copyDirectory(srcDir, trgDir)
         
