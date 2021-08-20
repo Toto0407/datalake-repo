@@ -15,12 +15,8 @@ def call(Map stageParams){
         """ 
        Path sourceDir = Paths.get(stageParams.src_repo_dir) 
        Path destinationDir = Paths.get(stageParams.dst_repo_dir) 
-
-       new AntBuilder().copy(todir: destinationDir) {
-       fileset(dir : sourceDir) {
-        exclude(name:"*.java")
-          }
-        }
+       Files.copy(sourceDir, destinationDir)
+      
 
         
         sh"""
