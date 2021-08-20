@@ -14,11 +14,14 @@ def call(Map stageParams){
         sh"""
         ls -la
         """ 
-        
-       File srcDir = new File("/emr/bootstrap_post_provision.sh")
-       File trgDir = new File("../aws/unified/dev/environment/files/bootstrap_post_provision.sh")
-       
-       FileUtils.copyDirectory(srcDir, trgDir)
+        class Example {
+   static void main(String[] args) {
+      new File("/emr").eachFile() {  
+         file->println file.getAbsolutePath()
+      }
+   } 
+}
+  
         
         sh"""
         ls -la ../aws/unified/dev/environment/files/
