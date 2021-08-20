@@ -1,3 +1,6 @@
+import java.nio.file.Files
+import java.nio.file.Paths
+
 def call(Map stageParams){
     dir("${stageParams.src_repo_name}"){
     checkout([
@@ -5,8 +8,7 @@ def call(Map stageParams){
         branches: [[name:  stageParams.src_repo_branch ]],
         userRemoteConfigs: [[ url: stageParams.src_repo_url ]]
     ])
-     sh"""
-     cp ./${stageParams.src_repo_dir}${stageParams.file_mask} ../${stageParams.dst_repo_dir}
-     """   
+     Files.copy(Paths.get(stageParams.src_repo_dir), Paths.get(stageParams.dst_repo_dir))   
+       
    }
 }
