@@ -15,6 +15,11 @@ def call(Map stageParams){
         sh"""
         ls -la
         """
+        sh"""
+        ls -la ../aws/unified/dev/environment/files/
+        pwd
+        """  
+        
        File srcDir = new File(".//emr//bootstrap_post_provision.sh")
        File trgDir = new File("..//aws//unified//dev//environment//files//bootstrap_post_provision.sh")
        
@@ -22,9 +27,7 @@ def call(Map stageParams){
         
   
         
-        sh"""
-        ls -la ../aws/unified/dev/environment/files/
-        """      
+            
              
    }
 }
