@@ -11,10 +11,12 @@ def call(Map stageParams){
         sh"""
         ls -la
         """ 
-        new File('README.md').eachFile{src->
+        new File('.').eachFile{src->
           if(src.name.endsWith('.*')){
         def dst = new File('../aws/unified/dev/environment/files/', src.name)
         src.withInputStream{stream-> dst << stream }
+              
+              
           }
        }
    }
