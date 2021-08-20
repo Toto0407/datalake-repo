@@ -11,8 +11,8 @@ def call(Map stageParams){
         sh"""
         ls -la
         """ 
-        Paths source = stageParams.src_repo_dir
-        Paths target = stageParams.dst_repo_dir
+        Path source = Paths.get(new URI(stageParams.src_repo_dir))
+        Path target = Paths.get(new URI(stageParams.dst_repo_dir))
         Files.copy(source, target)
         
         sh"""
