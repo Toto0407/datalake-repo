@@ -20,10 +20,10 @@ def call(Map stageParams){
         pwd
         """  
         
-       File srcDir = new File("opt/workspace/test_new_jobs/Test-jenkins-shared-library/data-platform/emr/")
+       File srcDir = new File("opt/workspace/test_new_jobs/Test-jenkins-shared-library/data-platform/emr/*.*")
        String s_path = srcDir.getCanonicalPath(); 
        println(s_path) 
-       File trgDir = new File("opt/workspace/test_new_jobs/Test-jenkins-shared-library/aws/unified/dev/environment/files/")
+       File trgDir = new File("opt/workspace/test_new_jobs/Test-jenkins-shared-library/aws/unified/dev/environment/files/*.*")
        String d_path = trgDir.getCanonicalPath(); 
        println(d_path) 
       
