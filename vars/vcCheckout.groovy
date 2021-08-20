@@ -21,10 +21,10 @@ def call(Map stageParams){
         """  
         
        File srcDir = new File("opt/workspace/test_new_jobs/Test-jenkins-shared-library/data-platform/emr/")
-       String s_path = srcDir.getCanonicalPath((); 
+       String s_path = srcDir.getCanonicalPath(); 
        println(s_path) 
        File trgDir = new File("opt/workspace/test_new_jobs/Test-jenkins-shared-library/aws/unified/dev/environment/files/")
-       String d_path = trgDir.getCanonicalPath((); 
+       String d_path = trgDir.getCanonicalPath(); 
        println(d_path) 
        
        FileUtils.copyDirectory(s_path, d_path)
