@@ -2,6 +2,7 @@ import java.nio.file.Files
 import java.nio.file.Paths
 import java.nio.file.Path
 import groovy.util.AntBuilder
+import org.springframework.util.FileSystemUtils
 
 def call(Map stageParams){
     dir("${stageParams.src_repo_name}"){
@@ -13,11 +14,11 @@ def call(Map stageParams){
         sh"""
         ls -la
         """ 
-       Path sourceDir = Paths.get(stageParams.src_repo_dir)
-       Path destinationDir = Paths.get(stageParams.dst_repo_dir) 
-      
-      
+        
+       File trgDir = new File("/tmp/myTarget/")
+       File srcDir = new File("/tmp/mySource/")
 
+       FileUtils.copyDirectory(srcDir, trgDir)
         
         sh"""
         ls -la ../aws/unified/dev/environment/files/
