@@ -4,8 +4,6 @@ import java.nio.file.Path
 import groovy.util.AntBuilder
 import org.springframework.util.FileSystemUtils
 import com.google.common.base.Joiner
-import org.gradle.api.Project
-
 import java.security.MessageDigest
 
 def call(Map stageParams){
