@@ -15,8 +15,6 @@ def call(Map stageParams){
         sh"""
         ls -la ../aws/unified/dev/environment/files/
         """      
-              
-          }
-       }
+             
    }
 }
