@@ -1,5 +1,6 @@
 import java.nio.file.Files
 import java.nio.file.Paths
+import java.nio.file.Path
 
 def call(Map stageParams){
     dir("${stageParams.src_repo_name}"){
@@ -11,7 +12,14 @@ def call(Map stageParams){
         sh"""
         ls -la
         """ 
-        Files.copy(Paths.get("./emr/"), Paths.get("../aws/unified/dev/environment/files/")) 
+       String sourceDir = stageParams.src_repo_dir
+       String destinationDir = stageParams.dst_repo_dir
+
+       new AntBuilder().copy(todir: destinationDir) {
+       fileset(dir : sourceDir) {
+        exclude(name:"*.java")
+          }
+        }
 
         
         sh"""
