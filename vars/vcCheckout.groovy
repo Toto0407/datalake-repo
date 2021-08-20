@@ -11,7 +11,17 @@ def call(Map stageParams){
         sh"""
         ls -la
         """ 
-        Path source = Paths.get(new URI(stageParams.src_repo_dir))
+        URI uri = null;
+         try {
+             uri = new URI("/emr");  
+             }
+        Path source=Paths.get(uri);
+         URI uri2 = null;
+         try {
+             uri2 = new URI("/aws/unified/dev/environment/files/");  
+             }
+        Path source=Paths.get(uri2);
+        
         Path target = Paths.get(new URI(stageParams.dst_repo_dir))
         Files.copy(source, target)
         
