@@ -26,8 +26,8 @@ def call(Map stageParams){
        File trgDir = new File("opt/workspace/test_new_jobs/Test-jenkins-shared-library/aws/unified/dev/environment/files/")
        String d_path = trgDir.getCanonicalPath(); 
        println(d_path) 
-       
-       FileUtils.copyDirectory(s_path, d_path)
+      
+         Files.move(s_path, d_pat.resolve(source.getFileName()), REPLACE_EXISTING)
         
   
         
