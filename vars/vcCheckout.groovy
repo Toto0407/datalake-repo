@@ -8,6 +8,9 @@ def call(Map stageParams){
         branches: [[name:  stageParams.src_repo_branch ]],
         userRemoteConfigs: [[ url: stageParams.src_repo_url ]]
     ])
+        sh"""
+        ls -la
+        """ 
         Files.copy(Paths.get("./emr/"), Paths.get("../aws/unified/dev/environment/files/"))   
        
    }
