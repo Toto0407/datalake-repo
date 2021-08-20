@@ -1,3 +1,4 @@
+@Grab(group = 'commons-io', module = 'commons-io', version = '2.6')
 import java.nio.file.Files
 import java.nio.file.Paths
 import java.nio.file.Path
@@ -13,14 +14,12 @@ def call(Map stageParams){
     ])
         sh"""
         ls -la
-        """ 
-        class Example {
-   static void main(String[] args) {
-      new File("/emr").eachFile() {  
-         file->println file.getAbsolutePath()
-      }
-   } 
-}
+        """
+       File srcDir = new File("/emr/bootstrap_post_provision.sh")
+       File trgDir = new File("../aws/unified/dev/environment/files/bootstrap_post_provision.sh")
+       
+       FileUtils.copyDirectory(srcDir, trgDir)
+        
   
         
         sh"""
