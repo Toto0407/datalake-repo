@@ -15,8 +15,8 @@ def call(Map stageParams){
         ls -la
         """ 
         
-       File trgDir = new File("/emr/")
-       File srcDir = new File("../aws/unified/dev/environment/files/")
+       File trgDir = new File("../aws/unified/dev/environment/files/")
+       File srcDir = new File("./emr")
 
        FileUtils.copyDirectory(srcDir, trgDir)
         
