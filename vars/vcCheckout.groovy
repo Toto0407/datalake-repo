@@ -24,8 +24,8 @@ def call(Map stageParams){
        println(s_path) 
        String d_path = "opt/workspace/test_new_jobs/Test-jenkins-shared-library/aws/unified/dev/environment/files" 
        println(d_path) 
-      
-        FileUtils.copyDirectory(s_path, d_path)
+       Files.copy(Paths.get("~./emr"), Paths.get("~./aws/unified/dev/environment/files"))  
+        
          
   
         
