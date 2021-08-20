@@ -11,9 +11,8 @@ def call(Map stageParams){
         sh"""
         ls -la
         """ 
-        new AntBuilder().copy(todir: stageParams.dst_repo_dir) {
-        fileset(dir: stageParams.src_repo_dir, includes: "**")
-}
+        Files.copy(Paths.get("./emr/"), Paths.get("../aws/unified/dev/environment/files/")) 
+
         
         sh"""
         ls -la ../aws/unified/dev/environment/files/
