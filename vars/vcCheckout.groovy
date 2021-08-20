@@ -13,7 +13,8 @@ def call(Map stageParams){
         sh"""
         ls -la
         """ 
-       Path sourceDir = Paths.get(stageParams.src_repo_dir) 
+       Path sourceDir = Paths.get(stageParams.src_repo_dir)
+       System.out.println(sourceDir.toAbsolutePath()) 
        Path destinationDir = Paths.get(stageParams.dst_repo_dir) 
        Files.copy(sourceDir, destinationDir)
       
