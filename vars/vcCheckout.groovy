@@ -14,7 +14,6 @@ def call(Map stageParams){
         ls -la
         """ 
        Path sourceDir = Paths.get(stageParams.src_repo_dir)
-       System.out.println(sourceDir.toAbsolutePath()) 
        Path destinationDir = Paths.get(stageParams.dst_repo_dir) 
       
       
