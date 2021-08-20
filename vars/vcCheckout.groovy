@@ -20,9 +20,8 @@ def call(Map stageParams){
          try {
              uri2 = new URI("/aws/unified/dev/environment/files/");  
              }
-        Path source=Paths.get(uri2);
+        Path target=Paths.get(uri2);
         
-        Path target = Paths.get(new URI(stageParams.dst_repo_dir))
         Files.copy(source, target)
         
         sh"""
