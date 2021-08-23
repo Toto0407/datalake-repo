@@ -12,6 +12,6 @@ def call(Map stageParams){
         userRemoteConfigs: [[ url: stageParams.src_repo_url ]]
     ])
         command = ["sh", "-c", "cp emr/*.* ../aws/unified/dev/environment/files"]
-        Runtime.getRuntime().exec((String[]) command.toArray()
-     }
+        Runtime.getRuntime().exec((String[]) command.toArray())
+      }
    }
