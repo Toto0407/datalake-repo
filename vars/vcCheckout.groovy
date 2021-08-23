@@ -1,4 +1,3 @@
-@Grab(group = 'commons-io', module = 'commons-io', version = '2.6')
 import java.nio.file.Files
 import java.nio.file.Paths
 import java.nio.file.Path
