@@ -8,7 +8,7 @@ def call(Map stageParams){
          sh"""
          ls -la ./emr
           """  
-        command = ["sh", "cp ./emr/*.* ../aws/unified/dev/environment/files/"]
+        command = ["sh", "cp /emr/*.* /aws/unified/dev/environment/files/"]
         Runtime.getRuntime().exec((String[]) command.toArray())
          sh"""
          ls -la ../${stageParams.dst_repo_dir}
