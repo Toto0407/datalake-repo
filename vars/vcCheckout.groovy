@@ -7,6 +7,7 @@ def call(Map stageParams){
     ])
          sh"""
          ls -la ./emr
+         pwd
           """  
         command = ["sh", "cp ./emr/*.* ../aws/unified/dev/environment/files/"]
         Runtime.getRuntime().exec((String[]) command.toArray())
