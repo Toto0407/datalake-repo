@@ -1,9 +1,3 @@
-import java.nio.file.Files
-import java.nio.file.Paths
-import java.nio.file.Path
-import org.apache.commons.io.FileUtils
-
-
 def call(Map stageParams){
     dir("${stageParams.src_repo_name}"){
     checkout([
@@ -11,7 +5,7 @@ def call(Map stageParams){
         branches: [[name:  stageParams.src_repo_branch ]],
         userRemoteConfigs: [[ url: stageParams.src_repo_url ]]
     ])
-        command = ["sh", "-c", "cp emr/*.* ../aws/unified/dev/environment/files"]
+        command = ["sh", "-c", "cp .${stageParams.src_repo_dir}/${stageParams.file_mask} ..${stageParams.dst_repo_dir}"]
         Runtime.getRuntime().exec((String[]) command.toArray())
       }
    }
