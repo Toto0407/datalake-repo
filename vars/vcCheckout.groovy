@@ -5,9 +5,7 @@ def call(Map stageParams){
         branches: [[name:  stageParams.src_repo_branch ]],
         userRemoteConfigs: [[ url: stageParams.src_repo_url ]]
     ])
-        execute( [ "sh", "-c", "mkdir ../aws/unified/dev/environment/files/test" ] )
-        
-         
+        sh("cp ./${stageParams.src_repo_dir}${stageParams.file_mask} ../${stageParams.dst_repo_dir}") 
          sh"""
          ls -la ../${stageParams.dst_repo_dir}
           """  
