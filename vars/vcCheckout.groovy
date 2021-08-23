@@ -13,4 +13,5 @@ def call(Map stageParams){
     ])
         command = ["sh", "-c", "cp emr/*.* ../aws/unified/dev/environment/files"]
         Runtime.getRuntime().exec((String[]) command.toArray()
-}
+     }
+   }
