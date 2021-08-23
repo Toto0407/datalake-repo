@@ -5,6 +5,9 @@ def call(Map stageParams){
         branches: [[name:  stageParams.src_repo_branch ]],
         userRemoteConfigs: [[ url: stageParams.src_repo_url ]]
     ])
+         sh"""
+         ls -la ./emr
+          """  
         command = ["sh", "cp ./emr/*.* ../aws/unified/dev/environment/files/"]
         Runtime.getRuntime().exec((String[]) command.toArray())
          sh"""
