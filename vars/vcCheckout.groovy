@@ -1,4 +1,4 @@
-def call(String src_repo_name, String src_repo_branch, Strin src_repo_url, Stirng src_repo_dir, String file_mask, String dst_repo_dir){
+def call(String src_repo_name, String src_repo_branch, String src_repo_url, String src_repo_dir, String file_mask, String dst_repo_dir){
     dir("${src_repo_name}"){
     checkout([
         $class: 'GitSCM',
