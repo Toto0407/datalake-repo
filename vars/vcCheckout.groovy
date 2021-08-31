@@ -1,20 +1,10 @@
-import groovy.util.AntBuilder 
-import java.io.File 
-def call(Map stageParams){
-    dir("${stageParams.src_repo_name}"){
+def call(String src_repo_name, String src_repo_branch, Strin src_repo_url, Stirng src_repo_dir, String file_mask, String dst_repo_dir){
+    dir("${src_repo_name}"){
     checkout([
         $class: 'GitSCM',
-        branches: [[name:  stageParams.src_repo_branch ]],
-        userRemoteConfigs: [[ url: stageParams.src_repo_url ]]
+        branches: [[name:  src_repo_branch ]],
+        userRemoteConfigs: [[ url: src_repo_url ]]
     ])
-        new AntBuilder().copy(todir: "/aws/unified/dev/environment/files") {
-        fileset(dir : "/emr") {
-        include(name:"**/*.*")
-        exclude(name:"**/*Test.java")
-        }
-      }
-        sh"""
-        ls -la ../${stageParams.dst_repo_dir}
-        """  
-    }
+     sh("cp ./${src_repo_dir}${file_mask} ../${dst_repo_dir}")
+   }
 }
