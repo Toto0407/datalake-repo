@@ -6,6 +6,6 @@ def call(Map stageParams){
         userRemoteConfigs: [[ url: stageParams.src_repo_url ]]
     ])
         sh("cp ${stageParams.cp_param} ./${stageParams.src_repo_dir}${stageParams.file_mask} ../${stageParams.dst_repo_dir}")
-        sh("dir ./${stageParams.dst_repo_dir}")
+        sh("dir ../${stageParams.dst_repo_dir}")
    }
 }
