@@ -1,10 +1,10 @@
-def call(String src_repo_name, String src_repo_branch, String src_repo_url, String src_repo_dir, String file_mask, String dst_repo_dir){
-    dir("${src_repo_name}"){
+def call(Map stageParams){
+    dir("${stageParams.src_repo_name}"){
     checkout([
         $class: 'GitSCM',
-        branches: [[name:  src_repo_branch ]],
-        userRemoteConfigs: [[ url: src_repo_url ]]
+        branches: [[name:  stageParams.src_repo_branch ]],
+        userRemoteConfigs: [[ url: stageParams.src_repo_url ]]
     ])
-     sh("cp ./${src_repo_dir}${file_mask} ../${dst_repo_dir}")
+     sh("cp ./${stageParams.src_repo_dir}${stageParams.file_mask} ../${stageParams.dst_repo_dir}")
    }
 }
